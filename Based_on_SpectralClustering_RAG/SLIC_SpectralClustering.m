@@ -2,6 +2,7 @@ clc
 clear
 close all
 tic()
+%在MATLAB中测试GitHub
 %% [0] 定义参数
 T_threshold=2.3;          %阈值参数 321*421的时候,取值 2.3 效果很好,
 num_clusters = 25;      %聚类数量 321*421的时候,取值 20
