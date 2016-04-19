@@ -1,11 +1,12 @@
 clc
 clear all
 close all
-image=double(imread('coloredChips.png'));
+image=double(imread('8068.jpg'));
 
 % Choose different scales
 % Segmentation parameter Q; Q small few segments, Q large may segments
 Qlevels=2.^(8:-1:0);
+% Qlevels=2.^(2);
 % This creates the following list of Qs [256 128 64 32 16 8 4 2 1]
 % Creates 9 segmentations
 
@@ -15,5 +16,9 @@ Qlevels=2.^(8:-1:0);
 srm_plot_segmentation(images,maps);
 
 for i=1:length(Qlevels)    
-    segmentlabel2image_fun(imread('coloredChips.png'),maps{i});
+    image=segmentlabel2image_fun(imread('8068.jpg'),maps{i},'SRM·Ö¸î½á¹û');
+    figure(104);
+    vl_tightsubplot(length(Qlevels), i) ;
+    imagesc(image);
+    axis off;
 end

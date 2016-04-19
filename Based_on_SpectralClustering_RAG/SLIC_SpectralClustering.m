@@ -5,7 +5,7 @@ tic()
 %在MATLAB中测试GitHub
 %% [0] 定义参数
 T_threshold=2.3;          %阈值参数 321*421的时候,取值 2.3 效果很好,
-num_clusters = 25;      %聚类数量 321*421的时候,取值 20
+num_clusters = 20;      %聚类数量 321*421的时候,取值 20
 sigma = 100;            %可以修改，不知道物理意义
 RGB_LAB_flag=0;         %选择在 LAB 空间(1)进行还是在 RGB 空间(0)进行
 
@@ -18,7 +18,7 @@ end
 
 SuperpixelsNum=500;     %超像素数量
 CompactnessFactor=20;   %紧密度
-image=imread('118035.jpg');  %原始图像
+image=imread('1.jpg');  %原始图像
 [image_width,image_heigh,image_d]=size(image);
 %segments为超像素的标签，numlabels为超像素数量
 [segments, numlabels]=mex_SLIC_fun(image, SuperpixelsNum, CompactnessFactor);
@@ -105,6 +105,7 @@ for i=1:num_clusters
 end
 segments_cluster=int32(segments_cluster);
 segmentlabel2image_fun(image,segments_cluster,'谱聚类合并结果');             %显示图像
+
 %% [8] 得到相邻超像素块和相邻聚类的index
 
 %相邻超像素块的index

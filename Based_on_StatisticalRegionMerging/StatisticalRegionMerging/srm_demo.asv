@@ -1,0 +1,29 @@
+clc
+clear all
+close all
+image=double(imread('1.jpg'));
+
+% Choose different scales
+% Segmentation parameter Q; Q small few segments, Q large may segments
+Qlevels=2.^(8:-1:0);
+% Qlevels=2.^(2);
+% This creates the following list of Qs [256 128 64 32 16 8 4 2 1]
+% Creates 9 segmentations
+
+%maps和Qs关联很强
+[maps,images]=srm(image,Qlevels);
+% And plot them
+srm_plot_segmentation(images,maps);
+
+for i=1:length(Qlevels)    
+    image=segmentlabel2image_fun(imread('1.jpg'),maps{i},'SRM分割结果');
+%     Iedge=zeros([size(image,1),size(image,2)]);
+%     map=reshape(image,size(Iedge));
+    quick_I2{k} = imseg{k} ;
+    figure;
+    vl_tightsubplot(length(Qlevels), i) ;
+    imshow(image);
+    axis off;
+%     borders = srm_getborders(map);
+%     Iedge(borders) = Iedge(borders) + 1;
+end
