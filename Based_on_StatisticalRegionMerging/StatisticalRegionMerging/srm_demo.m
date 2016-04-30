@@ -1,7 +1,7 @@
 clc
 clear all
 close all
-image=double(imread('8068.jpg'));
+image=double(imread('yaan2.tif'));
 
 % Choose different scales
 % Segmentation parameter Q; Q small few segments, Q large may segments
@@ -16,7 +16,7 @@ Qlevels=2.^(8:-1:0);
 srm_plot_segmentation(images,maps);
 
 for i=1:length(Qlevels)    
-    image=segmentlabel2image_fun(imread('8068.jpg'),maps{i},'SRM分割结果');
+    image=segmentlabel2image_fun(imread('yaan2.tif'),maps{i},'SRM分割结果');
     figure(104);
     vl_tightsubplot(length(Qlevels), i) ;
     imagesc(image);

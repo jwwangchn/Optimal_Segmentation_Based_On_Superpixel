@@ -17,6 +17,8 @@ for k=1:precision
     figure(102);
     vl_tightsubplot(precision, k) ;
     imagesc(uint8(quick_I2{k}));
+    figure
+    imshow(uint8(quick_I2{k}))
     axis off;
     borders = srm_getborders(map);
     Iedge(borders) = Iedge(borders) + 1;
